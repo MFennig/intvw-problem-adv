@@ -1,7 +1,7 @@
-import * as ErrorAction from './ErrorAction';
+import ErrorAction from './ErrorAction';
 import uuid from 'uuid/v4';
 import IAction from '../../models/IAction';
-import * as ActionUtility from '../../utilities/ActionUtility';
+import ActionUtility from '../../utilities/ActionUtility';
 
 describe('ErrorAction', () => {
   describe('removeById', () => {

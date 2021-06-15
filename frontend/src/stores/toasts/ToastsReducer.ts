@@ -1,30 +1,27 @@
 import IToastsState from './models/IToastsState';
-import * as ToastsAction from './ToastsAction';
+import ToastsAction from './ToastsAction';
+import BaseReducer from '../../utilities/BaseReducer';
 import IAction from '../../models/IAction';
 import IToast from './models/IToast';
-import baseReducer from '../../utilities/BaseReducer';
-import { Reducer } from 'redux';
 
-export const initialState: IToastsState = {
-  items: [],
-};
+export default class ToastsReducer extends BaseReducer<IToastsState> {
+  public readonly initialState: IToastsState = {
+    items: [],
+  };
 
-const toastsReducer: Reducer = baseReducer(initialState, {
-  [ToastsAction.ADD_TOAST](state: IToastsState, action: IAction<IToast>): IToastsState {
+  public [ToastsAction.ADD_TOAST](state: IToastsState, action: IAction<IToast>): IToastsState {
     return {
       ...state,
       items: [...state.items, action.payload!],
     };
-  },
+  }
 
-  [ToastsAction.REMOVE_TOAST](state: IToastsState, action: IAction<string>): IToastsState {
+  public [ToastsAction.REMOVE_TOAST](state: IToastsState, action: IAction<string>): IToastsState {
     const toastId: string = action.payload!;
 
     return {
       ...state,
       items: state.items.filter((model: IToast) => model.id !== toastId),
     };
-  },
-});
-
-export default toastsReducer;
+  }
+}

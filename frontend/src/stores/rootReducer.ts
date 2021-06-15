@@ -4,14 +4,14 @@ import { History } from 'history';
 import IStore from '../models/IStore';
 import requestingReducer from './requesting/RequestingReducer';
 import errorReducer from './error/ErrorReducer';
-import toastsReducer from './toasts/ToastsReducer';
+import ToastsReducer from './toasts/ToastsReducer';
 
 export default function rootReducer(history: History): Reducer<IStore> {
   const reducerMap: ReducersMapObject<IStore> = {
-    error: errorReducer,
+    error: errorReducer.reducer,
     requesting: requestingReducer,
     router: connectRouter(history) as any,
-    toasts: toastsReducer,
+    toasts: new ToastsReducer().reducer,
   };
 
   return combineReducers(reducerMap);
