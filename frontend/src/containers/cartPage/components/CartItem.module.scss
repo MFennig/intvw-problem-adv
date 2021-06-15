@@ -1,0 +1,10 @@
+.cartItemContainter {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.description,
+.quantity {
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0 10px 0;
+}
