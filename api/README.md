@@ -4,16 +4,23 @@ This is the API that you will be communicating with from the front end to return
 
 ## Start Server
 
+Install dependencies
+
+```bash
+  npm install
 ```
-npm i
-npm run start
+
+Start the server
+
+```bash
+  npm run start
 ```
 
 You will know if it successfully runs when you see this in within your terminal output
 
 (NOTE: the port is listed at the end for you to reference)
 
-```
+```bash
 Server Initialized on :5000
 ```
 
