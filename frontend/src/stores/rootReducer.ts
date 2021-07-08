@@ -5,6 +5,7 @@ import IStore from '../models/IStore';
 import requestingReducer from './requesting/RequestingReducer';
 import errorReducer from './error/ErrorReducer';
 import ToastsReducer from './toasts/ToastsReducer';
+import CartReducer from './cart/CartReducer';
 
 export default function rootReducer(history: History): Reducer<IStore> {
   const reducerMap: ReducersMapObject<IStore> = {
@@ -12,6 +13,7 @@ export default function rootReducer(history: History): Reducer<IStore> {
     requesting: requestingReducer,
     router: connectRouter(history) as any,
     toasts: new ToastsReducer().reducer,
+    cart: new CartReducer().reducer,
   };
 
   return combineReducers(reducerMap);

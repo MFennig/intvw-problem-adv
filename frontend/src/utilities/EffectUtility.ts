@@ -35,6 +35,6 @@ export default class EffectUtility {
       return response;
     }
 
-    return !Array.isArray(response.data) ? new Model(response.data) : (response.data.map((json) => new Model(json)) as any);
+    return !Array.isArray(response.data) ? new Model(response.data.data) : (response.data.map((json) => new Model(json)) as any);
   }
 }

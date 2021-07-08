@@ -1,35 +1,24 @@
 import React from 'react';
-import { CardDescription } from 'semantic-ui-react';
+import ICartItem from 'stores/cart/models/ICartItem';
 import CartItem from './CartItem';
 import styles from './CartItemList.module.scss';
+// import { Card } from 'semantic-ui-react';
 
 const CartItemList = ({ cartItems }) => {
-  function displayCartItems(cartItems: any) {
-    let newCartItems = [];
-    console.log('hey');
-    var x;
-    for (x = 0; x < cartItems.length; x++) {
-      var y: any = cartItems;
-      var d = y[x].description;
-      var q = y[x].quantity;
-      var i = y[x].cartItemId;
-
-      console.log({ y, d, q, i });
-      newCartItems.push(<CartItem quantity={q} description={d} />);
-    }
-    return newCartItems;
-    console.log(x);
-  }
-  console.log(cartItems);
   return (
-    <div className={styles.itemList}>
-      <div>
-        <strong>Description</strong>
+    <div className={styles.primaryItemContainer}>
+      <div className={styles.header}>
+        <p>Description</p>
       </div>
-      <div style={{ marginBottom: '10px' }}>
-        <strong>Quantity </strong>
+      <div className={styles.header}>
+        <p>Quantity</p>
       </div>
-      {displayCartItems(cartItems)}
+      {cartItems.cartItems.map((item: ICartItem) => {
+        return (
+          <CartItem key={item.cartItemId} description={item.description} quantity={item.quantity} />
+          // <Card header='Description' description={item.description} extra={item.quantity}/>
+        );
+      })}
     </div>
   );
 };
