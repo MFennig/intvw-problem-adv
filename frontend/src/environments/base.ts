@@ -10,6 +10,7 @@ export default function baseEnv(baseApi: string) {
     },
     api: {
       cast: `${baseApi}/shows/:showId/cast`,
+      cart: `http://localhost:5000/cart/byid`,
       episodes: `${baseApi}/shows/:showId/episodes`,
       shows: `${baseApi}/shows/:showId`,
       errorExample: 'https://httpstat.us/520',
