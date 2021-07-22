@@ -5,12 +5,14 @@ import CartEffect from './CartEffect';
 import CartResponseModel from './models/CartResponseModel';
 import ActionUtility from 'utilities/ActionUtility';
 
+type ActionUnion = void | HttpErrorResponseModel | CartResponseModel;
+
 export default class CartAction {
   public static readonly REQUEST_PRODUCT: string = 'CartAction.REQUEST_PRODUCT';
   public static readonly REQUEST_PRODUCT_FINISHED: string = 'CartAction.REQUEST_PRODUCT_FINISHED';
 
   public static requestProductById(cartId: number | null): any {
-    return async (dispatch: ReduxDispatch<CartResponseModel | HttpErrorResponseModel>, getState: () => IStore) => {
+    return async (dispatch: ReduxDispatch<ActionUnion>, getState: () => IStore) => {
       if (cartId === null) {
         dispatch({ type: CartAction.REQUEST_PRODUCT_FINISHED, payload: null });
       } else {

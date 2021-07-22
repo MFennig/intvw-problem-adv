@@ -1,14 +1,18 @@
-import styles from './CartPage.module.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Dispatch } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { Divider, Icon, Header } from 'semantic-ui-react';
-import CartItemList from './components/CartItemList';
-import { Dispatch } from 'redux';
-import CartAction from 'stores/cart/CartAction';
+import styles from './CartPage.module.scss';
 import IStore from 'models/IStore';
+import CartItemList from './components/CartItemList';
+import CartAction from 'stores/cart/CartAction';
 import CartResponseModel from 'stores/cart/models/CartResponseModel';
 import ToastsAction from 'stores/toasts/ToastsAction';
 import ToastStatusEnum from 'constants/ToastStatusEnum';
+
+export interface ICartConfig {
+  id: number;
+}
 
 const CartPage = () => {
   const cartResponse: CartResponseModel[] = useSelector((state: IStore) => state.cart.cartResponse);
@@ -16,9 +20,14 @@ const CartPage = () => {
   const [isError, setIsError] = useState(null);
   const dispatch: Dispatch = useDispatch();
 
-  const cartConfig: any = {
-    id: 101,
+  const cartConfig: ICartConfig = {
+    id: 102,
   };
+
+  // Can also do a useEffect instead of click event
+  // useEffect(() => {
+  //   dispatch(CartAction.requestProductById(cartConfig.id))
+  // }, []);
 
   const buttonClick = () => {
     setIsLoading(true);
@@ -38,7 +47,6 @@ const CartPage = () => {
       <Divider horizontal={true}>
         <Header as="h4">
           <Icon name="cart" onClick={buttonClick}>
-            {' '}
             Cart
           </Icon>
         </Header>

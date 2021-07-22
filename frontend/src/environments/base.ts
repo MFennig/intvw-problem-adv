@@ -9,6 +9,7 @@ export default function baseEnv(baseApi: string) {
       baseRoute: '/react-redux-architecture', // Fixes issue with Github Pages
     },
     api: {
+      cart: 'http://localhost:5000/cart/byid/',
       cast: `${baseApi}/shows/:showId/cast`,
       episodes: `${baseApi}/shows/:showId/episodes`,
       shows: `${baseApi}/shows/:showId`,
