@@ -1,15 +1,13 @@
-# Interview Project
+# Interview Assessment
 
-Front End Intervew Project
+Software Engineer Interview Assessment
 
 ## Task Summary
 
-Objective: Build a browser application to retrieve items from your cart.
-
-This should be built using:
-
-- React Typescript
-- Functional Component with Hooks
+Objectives:
+-Retrieve cart items via HTTP Request
+-Store items in current Redux design pattern
+-Retrieve cart items from redux store and display on shopping cart page
 
 ## Run Locally
 
