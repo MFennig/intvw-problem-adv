@@ -5,8 +5,6 @@ module.exports = function({ env, paths }) {
     babel: {
       presets: [],
       plugins: ['@babel/plugin-proposal-optional-chaining', '@babel/plugin-proposal-nullish-coalescing-operator'],
-      // loaderOptions: { /* Any babel-loader configuration options: https://github.com/babel/babel-loader. */ },
-      // loaderOptions: (babelLoaderOptions, { env, paths }) => { return babelLoaderOptions; }
     },
     webpack: {
       alias: {
