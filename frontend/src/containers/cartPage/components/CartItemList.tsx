@@ -1,15 +1,13 @@
 import React from 'react';
-import { CardDescription } from 'semantic-ui-react';
 import CartItem from './CartItem';
 import styles from './CartItemList.module.scss';
 
 const CartItemList = ({ cartItems }) => {
   function displayCartItems(cartItems: any) {
     let newCartItems = [];
-    console.log('hey');
     var x;
-    for (x = 0; x < cartItems.length; x++) {
-      var y: any = cartItems;
+    for (x = 0; x < cartItems.cartItems.length; x++) {
+      var y: any = cartItems.cartItems;
       var d = y[x].description;
       var q = y[x].quantity;
       var i = y[x].cartItemId;

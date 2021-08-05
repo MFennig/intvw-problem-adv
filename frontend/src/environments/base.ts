@@ -13,6 +13,7 @@ export default function baseEnv(baseApi: string) {
       episodes: `${baseApi}/shows/:showId/episodes`,
       shows: `${baseApi}/shows/:showId`,
       errorExample: 'https://httpstat.us/520',
+      cart: 'http://localhost:5000/cart/byid',
     },
     isProduction: true,
     isDevelopment: false,

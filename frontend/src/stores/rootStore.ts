@@ -16,7 +16,7 @@ export default function rootStore(initialState: Partial<IStore>, history: Histor
 
   const store: Store<IStore> = createStore(rootReducer(history), initialState as any, composeWithDevTools(applyMiddleware(...middleware)));
 
-  // store.subscribe(() => console.log(store.getState()));
+  store.subscribe(() => console.log(store.getState()));
 
   return store;
 }
