@@ -1,8 +1,6 @@
 import styles from './CartPage.module.scss';
-
 import React from 'react';
 import { Divider, Icon, Header } from 'semantic-ui-react';
-import CartItemList from './components/CartItemList';
 
 interface IProps {}
 
